@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Klant extends Model
 {
+
+    protected $table = 'klanten';
     /**
      * @var list<string>
     */
