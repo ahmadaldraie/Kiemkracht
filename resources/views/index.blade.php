@@ -13,10 +13,10 @@
         <div class="container d-flex flex-column flex-md-row justify-content-around align-items-center ">
 
             <div>
-                <h1 class="title">KIEM<br>KRACHT<br>OPDRACHT</h1>
+                <h1 class="title fs-1 fw-bold">KIEM<br>KRACHT<br>OPDRACHT</h1>
             </div>
             <div>
-                <a class="btn btn-c-index d-block mx-auto mb-3" href="/kassaticket">Een kassaticket sturen</a>
+                <a class="btn btn-c-index d-block mx-auto mb-3" href="/kassatickets/create">Een kassaticket indienen</a>
                 <a class="btn btn-c-index d-block mx-auto" href="/kassatickets">Kassatickets tonen</a>
             </div>
 
