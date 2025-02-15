@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\AdminMiddleware;
 use App\Http\Requests\KassaticketRequest;
 use App\Models\Kassaticket;
 use App\Models\Klant;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controllers\HasMiddleware;
+use Illuminate\Routing\Controllers\Middleware;
 
-class KassaticketController extends Controller
+class KassaticketController extends Controller implements HasMiddleware
 {
+
+    public static function middleware(): array
+    {
+        return [
+            new Middleware(['auth', AdminMiddleware::class], only: ['index']),
+        ];
+    }
     /**
      * Display a listing of the resource.
      */
