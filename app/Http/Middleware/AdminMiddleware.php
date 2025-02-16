@@ -11,9 +11,15 @@ use Symfony\Component\HttpFoundation\Response;
 class AdminMiddleware
 {
     /**
-     * Handle an incoming request.
+     * Verwerk een inkomend request en controleer of de gebruiker een beheerder is.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * Deze middlewarefunctie controleert of de geauthenticeerde gebruiker beheerdersrechten heeft.
+     * Als de gebruiker niet geauthenticeerd is als beheerder, wordt een AuthorizationException gegenereerd.
+     * 
+     * @param  \Illuminate\Http\Request  $request  De inkomende HTTP request
+     * @param  \Closure  $next  De volgende middleware/handler in de pipeline
+     * @return \Symfony\Component\HttpFoundation\Response  De response van de volgende middleware/handler
+     * @throws \Illuminate\Auth\Access\AuthorizationException  Als de gubruiker geen beheerdersrechten heeft.
      */
     public function handle(Request $request, Closure $next): Response
     {

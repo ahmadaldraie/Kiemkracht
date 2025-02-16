@@ -18,6 +18,9 @@ class KlantController extends Controller implements HasMiddleware
         ];
     }
 
+    /**
+     * Toon de indexpagina voor klanten met optionele zoekfunctionaliteit.
+     */
     public function index(Request $request)
     {
         $zoekterm = $request->input('query');
@@ -31,6 +34,7 @@ class KlantController extends Controller implements HasMiddleware
 
     /**
      * Show the form for creating a new resource.
+     * Automatisch gegenereerd, maar niet gebruikt voor deze versie van de applicatie.
      */
     public function create()
     {
@@ -39,6 +43,7 @@ class KlantController extends Controller implements HasMiddleware
 
     /**
      * Store a newly created resource in storage.
+     * Automatisch gegenereerd, maar niet gebruikt voor deze versie van de applicatie.
      */
     public function store(Request $request)
     {
@@ -47,6 +52,7 @@ class KlantController extends Controller implements HasMiddleware
 
     /**
      * Display the specified resource.
+     * Automatisch gegenereerd, maar niet gebruikt voor deze versie van de applicatie.
      */
     public function show($id)
     {
@@ -54,7 +60,7 @@ class KlantController extends Controller implements HasMiddleware
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Toon het formulier om de opgegeven klant te bewerken.
      */
     public function edit(string $id)
     {
@@ -63,7 +69,7 @@ class KlantController extends Controller implements HasMiddleware
         return view('klant.edit_form', compact('klant'));
     }
     /**
-     * Update the specified resource in storage.
+     * Werk de opgegeven klant bij in de database.
      */
     public function update(Request $request, $id)
     {
@@ -81,7 +87,7 @@ class KlantController extends Controller implements HasMiddleware
     }
 
     /**
-     * Remove the specified resource from storage.
+     * verwijder de opgegeven klant met zijn kassatickets uit de database.
      */
     public function destroy($id)
     {

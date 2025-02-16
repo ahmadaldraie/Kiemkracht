@@ -12,9 +12,9 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
-     * The attributes that are mass assignable.
+     * De attributen die ingevuld moeten worden bij het aanmaken van een User
      *
-     * @var list<string>
+     * @var list<string, bool>
      */
     protected $fillable = [
         'username',
@@ -23,7 +23,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * De attributen die verborgen moeten worden voor serialisatie.
      *
      * @var list<string>
      */
@@ -32,7 +32,7 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * haal de attributen die gecast moeten worden.
      *
      * @return array<string, string>
      */

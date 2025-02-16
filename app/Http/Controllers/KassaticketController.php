@@ -21,7 +21,7 @@ class KassaticketController extends Controller implements HasMiddleware
         ];
     }
     /**
-     * Display a listing of the resource.
+     * Toon de indexpagina voor kassatickets met optionele zoekfunctionaliteit.
      */
     public function index(Request $request)
     {
@@ -37,7 +37,7 @@ class KassaticketController extends Controller implements HasMiddleware
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Toon het formulier om een nieuwe kassaticket aan te maken.
      */
     public function create()
     {
@@ -45,7 +45,7 @@ class KassaticketController extends Controller implements HasMiddleware
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Sla de aangemaakte kassaticket met zijn klant gegevens als een aparte model op in de database
      */
     public function store(KassaticketRequest $request)
     {
@@ -69,6 +69,7 @@ class KassaticketController extends Controller implements HasMiddleware
 
     /**
      * Display the specified resource.
+     * Automatisch gegenereerd, maar niet gebruikt voor deze versie van de applicatie.
      */
     public function show($id)
     {
@@ -77,6 +78,8 @@ class KassaticketController extends Controller implements HasMiddleware
 
     /**
      * Show the form for editing the specified resource.
+     * Automatisch gegenereerd, maar niet gebruikt voor deze versie van de applicatie.
+     * Omdat er geen gegevens zijn die voor dit model aangepaast kunnen worden, heb ik het alleen mogelijk gemaakt om het kassaticket samen met het bestand te verwijderen via de method destroy.
      */
     public function edit($id)
     {
@@ -85,6 +88,7 @@ class KassaticketController extends Controller implements HasMiddleware
 
     /**
      * Update the specified resource in storage.
+     * Automatisch gegenereerd, maar niet gebruikt voor deze versie van de applicatie.
      */
     public function update(Request $request, $id)
     {
@@ -92,7 +96,7 @@ class KassaticketController extends Controller implements HasMiddleware
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Verwijder het kassaticket met het bestand
      */
     public function destroy($id)
     {

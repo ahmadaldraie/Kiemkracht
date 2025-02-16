@@ -7,15 +7,7 @@ use Illuminate\Foundation\Http\FormRequest;
 class KassaticketRequest extends FormRequest
 {
     /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
-    {
-        return true;
-    }
-
-    /**
-     * Get the validation rules that apply to the request.
+     * Haal de validatieregels op die van toepassing zijn op het verzoek van een kassaticket formulier.
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
