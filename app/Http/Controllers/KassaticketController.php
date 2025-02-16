@@ -9,6 +9,7 @@ use App\Models\Klant;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
+use Illuminate\Support\Facades\Storage;
 
 class KassaticketController extends Controller implements HasMiddleware
 {
@@ -16,15 +17,23 @@ class KassaticketController extends Controller implements HasMiddleware
     public static function middleware(): array
     {
         return [
-            new Middleware(['auth', AdminMiddleware::class], only: ['index']),
+            new Middleware(['auth', AdminMiddleware::class], only: ['index', 'destroy']),
         ];
     }
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $zoekterm = $request->input('query');
+        $kassatickets = Kassaticket::when($zoekterm, function ($query, $zoekterm) {
+            $query->whereHas('klant', function ($query) use ($zoekterm) {
+                $query->where('voornaam', 'like', "%$zoekterm%")
+                ->orWhere('achternaam', 'like', "%$zoekterm%")
+                ->orWhere('email', 'like', "%$zoekterm%");
+            });
+        })->get();
+        return view('kassatickets', compact('kassatickets'));
     }
 
     /**
@@ -42,7 +51,7 @@ class KassaticketController extends Controller implements HasMiddleware
     {
         $validated = $request->validated();
 
-        $kassaticketPath = $validated['kassaticket']->store('resources/kassatickets');
+        $kassaticketPath = $validated['kassaticket']->store('kassatickets', 'public');
         
         $klant = Klant::firstOrCreate(
             ['email' => $validated['email']],
@@ -50,7 +59,7 @@ class KassaticketController extends Controller implements HasMiddleware
             'achternaam' => $validated['achternaam'],]
         );
 
-        $kassaticket = Kassaticket::create([
+        Kassaticket::create([
             'klant_id' => $klant->id,
             'bestaand' => $kassaticketPath,
         ]);
@@ -61,7 +70,7 @@ class KassaticketController extends Controller implements HasMiddleware
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
         //
     }
@@ -69,7 +78,7 @@ class KassaticketController extends Controller implements HasMiddleware
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
         //
     }
@@ -77,7 +86,7 @@ class KassaticketController extends Controller implements HasMiddleware
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -85,8 +94,12 @@ class KassaticketController extends Controller implements HasMiddleware
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $kassaticket = Kassaticket::findOrFail($id);
+        Storage::disk('public')->delete($kassaticket->bestaand);
+        $kassaticket->delete();
+
+        return redirect()->route('kassatickets.index')->with('success', 'Kassaticket succesvol verwijderd!');
     }
 }
