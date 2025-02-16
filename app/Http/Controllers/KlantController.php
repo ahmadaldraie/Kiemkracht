@@ -101,6 +101,6 @@ class KlantController extends Controller implements HasMiddleware
         
         $klant->delete();
 
-        return redirect()->route('kassatickets.index')->with('success', 'Klant met de naam ' . $klant->voornaam . ' ' . $klant->achternaam . ' is succesvol verwijderd!');
+        return redirect()->route('klanten.index')->with('success', 'Klant met de naam ' . $klant->voornaam . ' ' . $klant->achternaam . ' is succesvol verwijderd!');
     }
 }
