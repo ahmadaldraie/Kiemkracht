@@ -41,7 +41,7 @@
                     <input type="file" class="form-control @error('kassaticket') is-invalid @enderror" name="kassaticket" id="kassaticket" accept=".pdf, .jpg, .jpeg, .png" required/>
                     @error('kassaticket') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
-                <button type="submit" class="btn btn-primary d-block mx-auto px-5">Indienen</button>
+                <button type="submit" class="btn btn-huis d-block mx-auto px-5">Indienen</button>
             </form>
             @if (session('success'))
                 <div class="alert alert-success my-3" role="alert">

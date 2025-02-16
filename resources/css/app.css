@@ -22,3 +22,14 @@ body {
     background-color: #e1c387;
     color: #fff;
 }
+
+.btn-huis {
+    background-color: #236128;
+    color: #fff;
+    font-weight: bold;
+}
+
+.btn-huis:hover {
+    background-color: #087211;
+    color: #fff;
+}

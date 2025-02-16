@@ -17,7 +17,7 @@
                 <form class="form-horizontal d-flex justify-content-center align-items-center me-3" method="get">
                     @csrf
                     <div class="input-group">
-                        <button class="btn btn-primary" type="submit">Zoeken</button>
+                        <button class="btn btn-huis" type="submit">Zoeken</button>
                         <input type="text" class="form-control-lg" name="query" placeholder="Zoek op klant naam of email address" aria-label="Search">
                     </div>
                 </form>
@@ -44,7 +44,7 @@
                         @php
                             $i = 0;
                         @endphp
-                        @foreach ($klanten as $klant)`
+                        @foreach ($klanten as $klant)
                             @php
                                 $i++;
                             @endphp

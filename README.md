@@ -39,3 +39,4 @@ Volg de stappen hieronder om het project lokaal te draaien:
    php artisan serve
    ```
    Bezoek vervolgens de applicatie in je browser op `http://localhost:8000`.
+   #NOTE: U kan altijd op de logo in de hoek kliken om terug naar de index pagina te gaan.

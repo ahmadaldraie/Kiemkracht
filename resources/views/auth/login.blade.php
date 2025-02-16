@@ -28,7 +28,7 @@
                     <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" value="{{ old('password', $user->password ?? '') }}" required>
                     @error('achternaam') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
-                <button type="submit" class="btn btn-primary d-block mx-auto px-5">inloggen</button>
+                <button type="submit" class="btn btn-huis d-block mx-auto px-5">inloggen</button>
             </form>
             @error('login') <div class="alert alert-danger mt-3" role="alert">{{ $message }}</div> @enderror
             <div class="alert alert-info mt-3 text-center" role="alert">

@@ -37,7 +37,7 @@
                     <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="email" value="{{ $klant->email ?? '' }}" required>
                     @error('email') <div class="invalid-feedback">{{ $message }}</div> @enderror
                 </div>
-                <button type="submit" class="btn btn-primary d-block mx-auto px-5">opslaan</button>
+                <button type="submit" class="btn btn-huis d-block mx-auto px-5">opslaan</button>
             </form>
         </div>
     </body>
