@@ -16,7 +16,8 @@
             </div>
             <div>
                 <a class="btn btn-c-index d-block mx-auto mb-3" href="{{route('kassatickets.create')}}">Een kassaticket indienen</a>
-                <a class="btn btn-c-index d-block mx-auto" href="{{route('kassatickets.index')}}">Kassatickets tonen</a>
+                <a class="btn btn-c-index d-block mx-auto mb-3" href="{{route('kassatickets.index')}}">Kassatickets tonen</a>
+                <a class="btn btn-c-index d-block mx-auto" href="{{route('klanten.index')}}">Klanten tonen</a>
                 @auth <a class="d-block text-center mt-2 link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" href="{{route('logout')}}">logout</a> @endauth
             </div>
         </div>
