@@ -29,7 +29,7 @@ class KlantController extends Controller implements HasMiddleware
             ->orWhere('achternaam', 'like', "%$zoekterm%")
             ->orWhere('email', 'like', "%$zoekterm%");
         })->get();
-        return view('klant.klanten', compact('klanten'));
+        return view('klant.index', compact('klanten'));
     }
 
     /**

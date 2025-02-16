@@ -54,7 +54,7 @@
                                 <td>{{$klant->voornaam}}</td>
                                 <td>{{$klant->achternaam}}</td>
                                 <td>{{$klant->email}}</td>
-                                <td><a class="btn btn-primary" href="/storage/{{$kassaticket->bestaand}}" target="_blank" rel="noopener">Toon kassaticket</a></td>
+                                <td><a class="btn btn-primary" href="/uploads/{{$kassaticket->bestaand}}" target="_blank" rel="noopener">Toon kassaticket</a></td>
                                 <td>
                                     <form action="{{ route('kassatickets.destroy', $kassaticket->id) }}" method="POST">
                                         @csrf

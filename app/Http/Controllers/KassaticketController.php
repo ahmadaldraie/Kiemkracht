@@ -33,7 +33,7 @@ class KassaticketController extends Controller implements HasMiddleware
                 ->orWhere('email', 'like', "%$zoekterm%");
             });
         })->get();
-        return view('kassatickets', compact('kassatickets'));
+        return view('kassaticket.index', compact('kassatickets'));
     }
 
     /**
@@ -41,7 +41,7 @@ class KassaticketController extends Controller implements HasMiddleware
      */
     public function create()
     {
-        return view('kassaticket_form');
+        return view('kassaticket.create_form');
     }
 
     /**
@@ -51,7 +51,7 @@ class KassaticketController extends Controller implements HasMiddleware
     {
         $validated = $request->validated();
 
-        $kassaticketPath = $validated['kassaticket']->store('kassatickets', 'public');
+        $kassaticketPath = $validated['kassaticket']->store('kassatickets', 'upload');
         
         $klant = Klant::firstOrCreate(
             ['email' => $validated['email']],
